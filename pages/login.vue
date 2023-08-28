@@ -27,8 +27,8 @@ export default {
                 password: this.password,
             };
             try {
-                // this.$store.dispatch('auth/login', credentials);
-                this.$router.push({name:'add'});
+                this.$store.dispatch('auth/login', credentials);
+                this.$router.push('/');
             } catch (error) {
                 console.error(error.message);
             }
