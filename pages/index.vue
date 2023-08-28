@@ -4,33 +4,27 @@
     <p>Create a list of tasks</p>
 
     <div class="create-new">
-      <input 
-        type="text" 
-        v-model="newTask" 
-        placeholder="Add a new task" 
-        @keypress.enter="addTask" />
+      <input type="text" v-model="newTask" placeholder="Add a new task" @keypress.enter="addTask" />
       <button @click="addTask">Add</button>
     </div>
-
     <div class="tasks">
-      <Task
-        v-for="(task, i) in $store.state.tasks"
-        :key="i"
-        :task="task" />
+      <Task v-for="(task, i) in $store.state.tasks" :key="i" :task="task" />
     </div>
 
   </main>
 </template>
 
 <script>
+
 export default {
-  data (){
+  data() {
     return {
       newTask: ''
     }
   },
+  
   methods: {
-    addTask () {
+    addTask() {
       if (this.newTask) {
         this.$store.commit('ADD_TASK', this.newTask);
         this.newTask = '';
